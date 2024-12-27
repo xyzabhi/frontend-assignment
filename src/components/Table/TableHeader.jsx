@@ -1,16 +1,18 @@
+import './TableHeader.css';
 
 const TableHeader = ({ headers }) => {
   return (
-    <div>
-        <thead>
-            <tr>
-                {headers.map((header) => (
-                    <th key={header}>{header}</th>
-                ))}
-            </tr>
-        </thead>
-    </div>
+    <thead className="table-header">
+      <tr>
+        {headers.map((header) => (
+          <th key={header} className="table-header__cell">
+            {header}
+          </th>
+        ))}
+      </tr>
+    </thead>
   );
 };
 
 export default TableHeader;
+                    
