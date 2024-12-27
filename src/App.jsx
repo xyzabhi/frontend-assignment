@@ -1,12 +1,25 @@
-
-
+import { useState, useEffect } from "react";
+import Table from "./components/Table/Table";
+import { userData } from "./apis/userapi";
 function App() {
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-  return (
-    <>
-    <h1>Hello World</h1>
-    </>
-  )
+const getData = async () => {
+  const {data, error} = await userData();
+  setData(data);
+  setError(error);
+  setLoading(false);
 }
 
-export default App
+  useEffect(() => {
+    getData();
+  }, [])
+  return (
+    <>
+      <Table isLoading={loading} error={error} data={data} />
+    </>
+  );
+}
+export default App;
