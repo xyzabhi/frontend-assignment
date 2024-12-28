@@ -1,0 +1,31 @@
+.tableBody{
+  display: flex;
+  flex-direction: column;
+}
+.tableBody__row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tableBody__row:nth-child(even){
+  background-color: #f0f0f0;
+}
+.tableBody__row:nth-child(odd){
+  background-color: #fff;
+}
+.tableBody__row:hover{
+  background-color: #e0e0e0;
+}
+.tableBody__cell{
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+}

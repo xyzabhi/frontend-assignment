@@ -1,25 +1,41 @@
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-    return (
-      <div className="pagination">
-        <button 
-          onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 1}
+import styles from "./Pagination.module.css";
+
+const Pagination = ({ currentPage, totalPages, onPageChange,pageSize,onRowsPerPageChange }) => {
+  return (
+    <div className={styles.pagination}>
+      <button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        className={styles.pagination__button}
+      >
+        Previous
+      </button>
+      <div className={styles.pagination__pageInfo_container}>
+      <span className={styles.pagination__pageInfo}>
+        Page {currentPage} of {totalPages}
+      </span>
+     
+        <select
+          value={pageSize}
+          onChange={(e) => onRowsPerPageChange(Number(e.target.value))}
+          className={styles.pagination__select}
         >
-          Previous
-        </button>
-  
-        <span className="page-info">
-          Page {currentPage} of {totalPages}
-        </span>
-  
-        <button 
-          onClick={() => onPageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
+          <option value={5}>5 rows</option>
+          <option value={10}>10 rows</option>
+          <option value={25}>25 rows</option>
+          <option value={50}>50 rows</option>
+        </select>
       </div>
-    );
-  };
-  
-  export default Pagination;
+
+      <button
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        className={styles.pagination__button}
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
+export default Pagination;

@@ -1,18 +1,18 @@
-import "./TableBody.css";
+import styles from "./TableBody.module.css";
 const TableBody = ({data}) => {
   return (
-    <div>
-      <tbody className="table-body">
+    <div className={styles.tableBody}>
+  
       {data.map((item) => (
-        <tr key={item.id} className="table-body__row">
+        <div key={item.id} className={styles.tableBody__row}>
           {Object.values(item).map((value, index) => (
-            <td key={index} className="table-body__cell">
+            <td key={index} className={styles.tableBody__cell}>
               {value}
             </td>
           ))}
-        </tr>
+        </div>
       ))}
-    </tbody>
+
     </div>
   )
 }
