@@ -1,6 +1,7 @@
 .tableContainer {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
   width: 80%;
   margin: 0 auto;
@@ -9,6 +10,7 @@
   border-radius: 5px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   max-height: 80vh;
+  min-height: 80vh;
   overflow-y: auto;
 }
 .table {
